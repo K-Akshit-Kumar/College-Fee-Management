@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--FAVICON-->
+     <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/295/295128.png" type="image/x-icon"/>
+    <!--CSS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/login.css">
+     <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap" rel="stylesheet" />
+    <!--TITLE-->
+    <title>Student Login</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="wrapper">
+        <div class="title"><span>Student Login</span></div>
+        <form action="./student/student_Login.php" method="post" id="form">
+          <div class="row">
+            <i class="fas fa-user"></i>
+            <input type="text" name="sname" id="name" placeholder="Enter Your Name" required />
+          </div>
+          <div class="row">
+            <i class="fas fa-lock"></i>
+            <input type="password" name="rollNo" id="rollNo" placeholder="Enter your Roll Number" required />
+          </div>
+          <div class="row button">
+            <input type="submit" value="Login" class="submit-btn" />
+          </div>
+          <div class="signup-link">Not a Student? <a href="./admin_Login.html">Admin Login</a></div>
+        </form>
+      </div>
+    </div>
+    <div class="footer">
+        <span>Created and Developed by A Bharath, K Akshit Kumar and T Kishore Varma</span>
+    </div>
+  </body>
+</html>
