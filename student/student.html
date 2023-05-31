@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=yes"/>
+    <!--FAVICON-->
+     <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/8716/8716448.png" type="image/x-icon"/>
+    <!--CSS-->
+    <link rel="stylesheet" type="text/css" href="../css/student.css"/>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap" rel="stylesheet"/>
+    <!--TITLE-->
+    <title>Student Panel</title>
+</head>
+<body>
+        <div class="header">Student Panel</div>
+        <div class="container" id="container">
+            <div class="sidebar" id="sidebar">
+                <ul>
+                    <li id="op1" onclick="show1()"><a href="#"><img
+                                src="https://cdn-icons-png.flaticon.com/512/3447/3447545.png" alt="Dashboard" width="15px">
+                            Fee Form</a></li> 
+                    <li id="op2" onclick="show2()"><a href="#"><img
+                                src="https://cdn-icons-png.flaticon.com/512/17/17640.png" alt="New Admission" width="15px">
+                            Syllabus</a></li>
+                </ul>
+            </div>
+            <div class="welcome" id="welcome">
+                <h1>Hello!</h1>
+                <h2>Welcome to Student Panel</h2>
+            </div>
+            <div class="sform" id="sform">
+                <div class="title">
+                    <h1>Student Fee Form</h1>
+                </div>
+                    <form action="student.php" method="post">
+                        <div class="nameDiv">
+                            <label>Name:</label>
+                            <input type="text" name="name" required>
+                        </div>
+                        <div class="rollNoDiv">
+                            <label>Roll Number:</label>
+                            <input type="text" name="rollNumber" maxlength="10" required>
+                        </div>
+                        <div class="branchDiv">
+                            <label>Branch:</label>
+                            <select name="branch" id="branch" required>
+                                <option value="">-- Choose your Course</option>
+                                <option value="cse">Computer Science and Engineering</option>
+                            </select>
+                        </div>
+                        <div class="typeDiv">
+                            <label>Choose Type:</label>
+                            <select name="type" id="type" required>
+                                <option value="">-- Choose Type</option>
+                                <option value="regular">Regular</option>
+                                <option value="supply">Supply</option>
+                            </select>
+                        </div>
+                        <div class="semesterDiv">
+                            <label>Choose Year:</label>
+                            <select name="year" id="year" required>
+                                <option value="0">--Choose Year</option>
+                                <option value="1">First Year</option>
+                                <option value="2">Second Year</option>
+                                <option value="3">Third Year</option>
+                                <option value="4">Fourth Year</option>
+                            </select>
+                            <label>Choose Semester:</label>
+                            <select name="semester" id="semester" required>
+                                <option value="0">--Choose Semester</option>
+                                <option value="1">First Semester</option>
+                                <option value="2">Second Semester</option>
+                            </select>
+                        </div>                
+                        <div class="button"><button>Submit</button></div>
+                    </form>
+            </div>
+            <div class="syllabus" id="syllabus">
+                <div class="title">
+                    <h1>Syllabus</h1>
+                </div>
+                <div class="ssearch">
+                    <div class="ssearchForm">
+                        <!--<div>-->
+                        <!--    <label>Batch:</label>-->
+                        <!--    <select id="b" required>-->
+                        <!--        <option>--Select Batch</option>-->
+                        <!--    </select>-->
+                        <!--</div>-->
+                        <div>
+                            <label>Year:</label>
+                            <select id="y" required>
+                                <option>--Select Year</option>
+                                <option value="1">1st Year</option>
+                                <option value="2">2st Year</option>
+                                <option value="3">3st Year</option>
+                                <option value="4">4st Year</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label>Semester:</label>
+                            <select id="s" required>
+                                <option>--Select Semester</option>
+                                <option value="1">1st Semester</option>
+                                <option value="2">2st Semester</option>
+                            </select>
+                        </div>
+                        <div class="btn">
+                            <button onclick="std()">Submit</button>
+                        </div>
+                    </div>
+                    <div class="studentDetails" id="studentDetails"></div>
+                    <script>
+                        function std() {
+                            // const sroll = document.getElementById("rollNo").value;
+                            // const batch = document.getElementById("b").value;
+                            const year = document.getElementById("y").value;
+                            const semester = document.getElementById("s").value;
+                            const xhr = new XMLHttpRequest();
+                            xhr.onload = function () {
+                                document.getElementById("studentDetails").innerHTML = this.responseText;
+                            }
+                            // xhr.open("GET", "./config/syllabus.php?b="+batch+"&y="+year+"&s="+semester+"&r="+sroll);
+                            xhr.open("GET", "syllabus.php?y="+year+"&s="+semester);
+                            xhr.send();
+                        }
+                    </script>
+                </div>
+            </div>
+        </div>
+    
+    <script src="../js/student.js"></script>
+</body>
+</html>
