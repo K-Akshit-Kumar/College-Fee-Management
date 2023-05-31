@@ -1,0 +1,840 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", serif, sans-serif;
+    transition: all 0.5s;
+}
+
+::selection {
+        background: rgba(26, 188, 156, 0.3);
+      }
+
+:root {
+    --background-color: #7a9d96;
+    /*--background-color: whitesmoke;*/
+    --header-color: #00203F;
+    /*--header-color: #76C1D4;*/
+    /*--header-color: #00303f;*/
+    --header-box-shadow: 0 2px 5px gray;
+    --color1: black;
+    --color2: white;
+    --box-shadow: 0 0 10px gray;
+    --border: 1px solid gray;
+    --border-bottom-color: green; 
+    --title-font: 26px;
+    --text-color: white;
+}
+
+/*PRELOAD*/
+#preload{
+    width: 100%;
+    height: 100vh;
+    background: #000 url(../admin/images/loader.gif) no-repeat center center;
+    background-size: 10%;
+    z-index: 100;
+    position: fixed;
+}
+
+.admin {
+    width: 100%;
+    /* height: 100vh; */
+    overflow: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.header {
+    width: 100%;
+    height: 60px;
+    background-color: var(--header-color);
+    /* position: fixed; */
+    /* top: 0; */
+    z-index: 10;
+    box-shadow: var(--header-box-shadow);
+    color: var(--color2);
+}
+
+.header span {
+    position: absolute;
+    top: 15px;
+    left: 60px;
+    font-size: 20px;
+}
+
+.header img {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    filter: invert(1);
+}
+.header .mode-log{
+    position: absolute;
+    top: 12px;
+    right: 30px;
+}
+.header button {
+    padding: 5px 5px;
+    border-radius: 10px;
+    font-weight: 550;
+    background-color: var(--color1);
+    color: var(--color2);
+}
+.header button:hover{
+    box-shadow: var(--box-shadow);
+}
+
+.container {
+    width: 100%;
+    height: calc(100vh - 60px);
+    display: flex;
+    color: var(--color2);
+}
+
+/* Sidebar */
+.container .sidebar {
+    min-width: 250px;
+    height: calc(100vh - 60px);
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    transition: 0.5s;
+    color: black;
+}
+
+.sidebar ul {
+    list-style-type: none;
+}
+.sidebar ul li a {
+    text-decoration: none;
+    color: var(--color1);
+    word-break: keep-all;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    display: block;
+}
+
+.sidebar ul li a:hover{
+    border-right: 5px solid var(--header-color);
+    background-color: var(--header-color);
+    color: var(--color2);
+}
+
+.sidebar ul li a:hover img{
+    filter: invert(1);
+}
+
+.sidebar ul li a img {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+/* Greeting */
+.welcome {
+    width: 100%;
+    height: calc(100vh- 60px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /*display: none; */
+    color: var(--color1);
+}
+
+.welcome h1 {
+    font-size: 66px;
+    margin-bottom: 10px;
+}
+
+.welcome h2 {
+    font-size: 36px;
+}
+
+/* Dashboard */
+.dashboard {
+    width: 100%;
+    height: calc(100vh- 60px);
+    /* overflow: auto; */
+    display: none;
+}
+
+.dashboard .dheader,
+.newAdmission .dheader,
+.feeDetails .dheader,
+.checkPayments .dheader,
+.checkDues .dheader,
+.changePassword .dheader, .supplyFee .dheader{
+    width: 98%;
+    height: 60px;
+    margin: 10px auto;
+    background-color: whitesmoke;
+    box-shadow: 0 1px 5px black;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color1);
+}
+
+.dheader span {
+    font-size: 26px;
+    font-weight: 550;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.ssearch {
+    width: 100%;
+    height: 80vh;
+    overflow: auto;
+    margin: 0 auto;
+}
+
+.ssearchForm {
+    width: 98%;
+    margin: 50px auto 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    /*flex-direction: column;*/
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+    border: var(--border);
+    border-radius: 10px;
+    background-color: var(--background-color);
+}
+.ssearchForm div{
+    /*width: 80%;*/
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    /*justify-content: space-evenly;*/
+    /*background-color: green;*/
+}
+
+.ssearchForm label {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 550;
+    margin-right: 15px;
+}
+
+.ssearchForm input,.ssearchForm select {
+    /*min-width: 30%;*/
+    height: 45px;
+    padding: 0 10px;
+    /*padding: 5px 5px;*/
+    border: var(--border);
+    border-radius: 5px;
+    font-size: 16px;
+    margin: 15px 20px;
+}
+
+.ssearchForm button {
+    /*margin-left: 10px;*/
+    border-radius: 5px;
+    border: var(--border);
+    padding: 7px 20px;
+    font-weight: 550;
+    color: var(--color1);
+}
+
+.ssearchForm button:hover {
+    box-shadow: var(--box-shadow);
+}
+
+.studentDetails {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+
+/* New Admission */
+.newAdmission {
+    width: 100%;
+    height: calc(100vh- 60px);
+    display: none;
+    overflow: auto;
+    /*background-color: green;*/
+}
+.newAdmissionForm{
+    width: 98%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px auto;
+    border-radius: 10px;
+    /*height: 100%;*/
+    background-color: var(--background-color);
+    /*background-color: #7a9d96;*/
+}
+.newAdmissionForm .form{
+    width: 90%;
+    margin: 0 auto;
+    padding: 25px 30px;
+    display: flex;
+    flex-wrap: wrap;
+    /*background-color: orange;*/
+}
+.newAdmissionForm .form .personal-details{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 0px 12px 0;
+}
+.newAdmissionForm .form .personal-details div{
+    width: calc(100% / 2 - 20px);
+    margin-bottom: 15px;
+}
+.newAdmissionForm .form .personal-details div label{
+    font-weight: 550;
+}
+.newAdmissionForm .form .personal-details input{
+    width: 100%;
+    height: 45px;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid gray;
+    padding-left: 15px;
+    font-size: 16px;
+    border-bottom-width: 3px;
+    transition: all 0.3s ease;
+}
+.newAdmissionForm .form .personal-details input:focus,
+.newAdmissionForm .form .personal-details input:valid{
+    border-color: var(--border-bottom-color);
+}
+.newAdmissionForm .form .personal-details select{
+    width: 100%;
+    height: 45px;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid gray;
+    padding-left: 15px;
+    border-bottom-width: 3px;
+    transition: all 0.3s ease;
+}
+.newAdmissionForm .form .personal-details select:focus,
+.newAdmissionForm .form .personal-details select:valid{
+    border-color: var(--border-bottom-color);
+}
+
+.newAdmissionForm .form .educational-details{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 0px 12px 0;
+}
+.newAdmissionForm .form .educational-details div{
+    width: calc(100% / 2 - 20px);
+    margin-bottom: 15px;
+}
+.newAdmissionForm .form .educational-details div label{
+    font-weight: 550;
+}
+.newAdmissionForm .form .educational-details input{
+    width: 100%;
+    height: 45px;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid gray;
+    padding-left: 15px;
+    font-size: 16px;
+    border-bottom-width: 3px;
+    transition: all 0.3s ease;
+}
+.newAdmissionForm .form .educational-details input:focus,
+.newAdmissionForm .form .educational-details input:valid{
+    border-color: var(--border-bottom-color);
+}
+.newAdmissionForm .form .educational-details select{
+    width: 100%;
+    height: 45px;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid gray;
+    padding-left: 15px;
+    border-bottom-width: 3px;
+    transition: all 0.3s ease;
+}
+.newAdmissionForm .form .educational-details select:focus,
+.newAdmissionForm .form .educational-details select:valid{
+    border-color: var(--border-bottom-color);
+}
+.newAdmissionForm div textarea {
+    width: 208%;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.newAdmissionForm div button {
+    padding: 10px 50px;
+    margin: 20px auto;
+    border-radius: 10px;
+    background-color: var(--header-color);
+    color: var(--color2);
+    border: var(--border);
+    font-weight: 550;
+    font-size: 16px;
+}
+.newAdmissionForm div button:hover {
+    box-shadow: var(--box-shadow);
+}
+
+
+/* Fee Details */
+.feeDetails {
+    width: 100%;
+    height: calc(100vh - 60px);
+    overflow: auto;
+    display: none;
+}
+
+.feeTable {
+    width: 100%;
+    height: calc(100vh - 140px);
+    overflow: auto;
+    padding-bottom: 50px;
+}
+
+.feeSearch {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feeSearch input {
+    width: 50%;
+    margin-top: 20px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 2px solid black;
+}
+
+/*Supply Fee Details*/
+.supplyFee{
+    width: 100%;
+    height: calc(100vh - 60px);
+    overflow: auto;
+    display: none;
+}
+
+/* ALL TABLE  */
+table {
+    width: 90%;
+    height: auto;
+    border: var(--border);
+    border-radius: 10px;
+    color: var(--color1);
+    border-collapse: collapse;
+    margin: 20px auto 0 auto;
+    padding: 0;
+    table-layout: fixed;
+}
+
+table tr {
+    background-color: #f8f8f8;
+    border: 1px solid black;
+    padding: .35em;
+}
+
+table th {
+    background-color: var(--background-color);
+    color: var(--color2);
+    text-align: left;
+}
+
+table th,
+table td {
+    padding: .625em;
+    
+}
+
+table th {
+    font-size: .85em;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+
+.feeTable table tr td button {
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    background-color: var(--background-color);
+    color: var(--color2);
+}
+
+.feeTable table tr td button:hover {
+    box-shadow: var(--box-shadow);
+}
+
+/* Check Payments */
+.checkPayments,
+.checkDues {
+    width: 100%;
+    height: calc(100vh - 60px);
+    overflow: auto;
+    display: none;
+}
+
+.searchPayment,
+.searchDues {
+    width: 50%;
+    margin: 50px auto;
+    padding: 20px 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    border: var(--border);
+    background-color: var(--background-color);
+}
+
+.searchPayment label,
+.searchDues label {
+    font-size: 18px;
+    font-weight: 550;
+    margin-right: 20px;
+    text-align: center;
+}
+
+.searchPayment input,
+.searchDues input {
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 0 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    border: var(--border);
+}
+
+/* Change Password */
+.changePassword {
+    width: 100%;
+    display: none;
+}
+
+.changePassword form {
+    width: 60%;
+    height: 40vh;
+    margin: 50px auto 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-color: var(--background-color);
+    border-radius: 10px;
+}
+
+.changePassword form div {
+    width: 80%;
+    margin: 10px auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    /*background-color: green;*/
+}
+
+.changePassword form div label {
+    min-width: 50%;
+    font-size: 18px;
+    font-weight: 550;
+    word-break: keep-all;
+    color: var(--color2);
+    margin: auto;
+}
+
+.changePassword form div input {
+    min-width: 50%;
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    margin: auto;
+}
+
+.changePassword form button {
+    margin-top: 20px;
+    padding: 10px 50px;
+    border-radius: 10px;
+    border: 2px solid gray;
+    font-weight: 550;
+}
+
+.changePassword form button:hover {
+    box-shadow: var(--box-shadow);
+}
+
+@media only screen and (max-width: 1000px) {
+    .header span {
+        left: 60px;
+    }
+
+    .container {
+        flex-direction: column;
+    }
+
+    /* SIDEBAR */
+    .container .sidebar {
+        width: 100%;
+        height: auto;
+        background-color: whitesmoke;
+        transition: 0.5s;
+        display: block;
+    }
+
+    .sidebar ul {
+        width: 100%;
+        text-align: center;
+        list-style-type: none;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .sidebar ul li {
+        /* font-weight: 550; */
+        border-radius: 20px;
+        margin: 10px 5px;
+    }
+
+    .sidebar ul li a {
+        text-decoration: none;
+        color: black;
+        word-break: keep-all;
+    }
+
+    .sidebar ul li a:hover {
+        border-right: none;
+        /*background-color: var(--header-color);*/
+        border-radius: 10px;
+    }
+
+    .sidebar ul li a img {
+        /*display: none;*/
+    }
+
+    /* WELCOME */
+    .welcome {
+        width: 100%;
+        height: 100vh;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .welcome h1 {
+        font-size: 50px;
+    }
+
+    .welcome h2 {
+        font-size: 30px;
+        text-align: center;
+    }
+
+    /* DASHBOARD */
+    .ssearch {
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+    }
+
+    .ssearchForm {
+        width: 98%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        padding: 20px 10px;
+        border: var(--border);
+        border-radius: 10px;
+        background-color: var(--background-color);
+    }
+    .ssearchForm div{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .ssearchForm label {
+        /*text-align: center;*/
+        font-size: 18px;
+        font-weight: 550;
+    }
+
+    .ssearchForm input,.ssearchForm select{
+        /*min-width: 30%;*/
+        padding: 0 5px;
+        border: var(--border);
+        border-radius: 5px;
+        font-size: 16px;
+        margin: 10px 20px;
+    }
+
+    /* NEW ADMISSION */
+    .newAdmission{
+        width: 100%;
+        overflow: none;
+    }
+    .newAdmissionForm{
+        width: 100%;
+    }
+    .newAdmissionForm .form .personal-details{
+        flex-direction: column;
+    }
+    .newAdmissionForm .form .personal-details div{
+        width: 100%;
+    }
+    .newAdmissionForm .form .educational-details{
+        flex-direction: column;
+    }
+    .newAdmissionForm .form .educational-details div{
+        width: 100%;
+    }
+    .newAdmissionForm .form textarea{
+        width: 100%;
+    }
+    
+    /*FEE DETAILS*/
+    .feeSearch input {
+        width: 90%;
+    }
+
+    /* CHECK PAYMENTS and CHECK DUES */
+    .checkPayments,
+    .checkDues {
+        width: 100%;
+    }
+
+    .searchPayment,
+    .searchDues {
+        width: 90%;
+        overflow: auto;
+    }
+
+    .searchPayment label,
+    .searchDues label {
+        text-align: center;
+    }
+
+    .searchPayment input,
+    .searchDues input {
+        margin: 5px 20px;
+    }
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* All TABLES */
+
+    table {
+        border: 0;
+    }
+
+    table thead {
+        border: none;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 100px;
+    }
+    th{
+        /*display: none;*/
+        background-color: white;
+    }
+
+    table tr {
+        /*border-bottom: 3px solid #ddd;*/
+        background-color: white;
+        border: none;
+        display: block;
+        margin-bottom: .625em;
+    }
+
+    table td {
+        border-bottom: 1px solid #ddd;
+        display: block;
+        font-size: .8em;
+        text-align: right;
+    }
+    table th::before {
+        /*
+        * aria-label has no advantage, it won't be read inside a table
+        content: attr(aria-label);
+        */
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    table td::before {
+        /*
+        * aria-label has no advantage, it won't be read inside a table
+        content: attr(aria-label);
+        */
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    table td:last-child {
+        border-bottom: 0;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* .ssearchForm label,
+    input,
+    button {
+        margin: 6px;
+    }
+
+    .searchPayment,
+    .searchDues {
+        text-align: center;
+    }
+
+    .changePassword form div {
+        width: 100%;
+        padding-left: 60px;
+    } */
+
+
+}

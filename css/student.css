@@ -1,0 +1,362 @@
+        *{
+            margin: 0; 
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", serif, sans-serif;
+            transition: all 0.5s;
+        } 
+        
+        ::selection {
+            background: rgba(26, 188, 156, 0.3);
+        }
+        
+        :root {
+            --background-color: #7a9d96;
+            /*--background-color: whitesmoke;*/
+            --header-color: #00203F;
+            /*--header-color: #76C1D4;*/
+            /*--header-color: #00303f;*/
+            --header-box-shadow: 0 2px 5px gray;
+            --color1: black;
+            --color2: white; 
+            --box-shadow: 0 0 10px gray;
+            --border: 1px solid gray;
+            --border-bottom-color: green; 
+            --title-font: 26px;
+            --text-color: white;
+        }
+        .header{
+            width:100%;
+            height:60px;
+            background-color:var(--header-color); 
+            color:white;
+            font-size:18px; 
+            font-weight:550; 
+            /*text-align:center;*/
+            padding-left: 20px;
+            padding-top:15px
+        }
+        .container {
+            width: 100%;
+            height: calc(100vh - 60px);
+            display: flex;
+            align-items: center;
+            color: var(--color2);
+        }
+        
+        /* Sidebar */
+        .container .sidebar {
+            min-width: 250px;
+            height: calc(100vh - 60px);
+            background-color: whitesmoke;
+            display: flex;
+            flex-direction: column;
+            transition: 0.5s; 
+            color: black;
+        }
+        
+        .sidebar ul {
+            list-style-type: none;
+        }
+        .sidebar ul li a {
+            text-decoration: none;
+            color: var(--color1);
+            word-break: keep-all;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            padding: 10px;
+            display: block;
+        }
+        
+        .sidebar ul li a:hover{
+            border-right: 5px solid var(--header-color);
+            background-color: var(--header-color);
+            color: var(--color2);
+        }
+        
+        .sidebar ul li a:hover img{
+            filter: invert(1);
+        }
+        
+        .sidebar ul li a img {
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+        
+        /* Greeting */
+        .welcome {
+            width: 100%;
+            height: calc(100vh- 60px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            /* display: none; */
+            color: var(--color1);
+        }
+        
+        .welcome h1 {
+            font-size: 66px;
+            margin-bottom: 10px;
+        }
+        
+        .welcome h2 {
+            font-size: 36px;
+        }
+        
+        .sform{
+            width:100%;
+            height: calc(100vh - 60px);
+            display:flex;
+            flex-direction:column;
+            padding-bottom: 10px;
+            overflow: auto;
+            display: none;
+        }
+        .title {
+            width: 98%;
+            padding: 5px 0;
+            margin: 20px auto;
+            border: var(--border);
+            border-radius: 10px;
+            text-transform: uppercase;
+            word-spacing: 5px;
+            box-shadow: var(--box-shadow);
+            font-size: 1rem;
+            /*background-color: var(--header-color);*/
+        }
+        
+        .title h1 {
+            text-align: center;
+            color: var(--color1);
+        }
+        
+        .container form{
+            width: 98%;
+            border: var(--border);
+            border-radius: 10px;
+            /*padding: 15px 20px;*/
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 0 auto;
+            background-color: var(--background-color);
+        }
+        
+        .container form div {
+            width: 50%;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 10px;
+            margin: 10px 0;
+            color: var(--color1);
+        }
+        
+        .container form div input {
+            width: 100%;
+            padding: 7px 10px;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        
+        .container form div select {
+            width: 100%;
+            padding: 7px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            border: 2px solid var(--header-color);
+        }
+        
+        .container form .semesterDiv{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .container form .semesterDiv select{
+            min-width: 50%;
+            margin-bottom: 30px;
+            padding: 7px 10px;
+        }
+        
+        .container form .button {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            /* padding-bottom: 50px; */
+        }
+        
+        .container form button {
+            padding: 10px 50px;
+            border-radius: 10px;
+            border: var(--border);
+            /* border: none; */
+            font-weight: bold;
+            /* box-shadow: 2px 2px 5px black; */
+            background-color: var(--header-color);
+            color: white;
+            cursor: pointer;
+        }
+        
+        .container form button:hover {
+            box-shadow: var(--box-shadow);
+        }
+        
+        /* Student.php css */
+        /*.paymentTable{*/
+        /*    display: flex;*/
+        /*    align-items: flex-start;*/
+        /*}*/
+        
+        table{
+            margin: 50px auto 0 auto;
+            border-collapse: collapse;
+            font-size:26px;
+        }
+        
+         table tr th{
+            text-align: center;
+            padding:5px 0px 5px 20px;
+            border: 2px solid black; 
+            background-color: var(--background-color);
+            color: white;
+        }
+        
+        table tr td{
+            border: 2px solid black; 
+            padding:5px 20px 5px 20px;
+            background-color: var(--primary-color);
+        }
+        
+        .syllabus{
+            width: 100%;
+            height: calc(100vh - 60px);
+            display: none;
+        }
+        .ssearch {
+            width: 100%;
+            height: 78vh;
+            overflow: auto;
+            margin: 0 auto;
+        }
+        
+        .ssearchForm {
+            width: 98%;
+            margin: 50px auto 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            /*flex-direction: column;*/
+            align-items: center;
+            justify-content: center;
+            padding: 20px 0;
+            border: var(--border);
+            border-radius: 10px;
+            background-color: var(--background-color);
+        }
+        .ssearchForm div{
+            min-width: 30%;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            /*background-color: green;*/
+        }
+        
+        .ssearchForm label {
+            text-align: center;
+            font-size: 18px;
+            font-weight: 550;
+            margin-right: 15px;
+        }
+        
+        .ssearchForm input,.ssearchForm select {
+            /*min-width: 30%;*/
+            height: 45px;
+            padding: 0 10px;
+            /*padding: 5px 5px;*/
+            border: var(--border);
+            border-radius: 5px;
+            font-size: 16px;
+            margin: 15px 20px;
+        }
+        
+        .ssearchForm button {
+            /*margin-left: 10px;*/
+            border-radius: 5px;
+            border: var(--border);
+            padding: 7px 20px;
+            font-weight: 550;
+            color: var(--color1);
+        }
+        
+        .ssearchForm button:hover {
+            box-shadow: var(--box-shadow);
+        }
+        
+        .studentDetails {
+            width: 100%;
+            margin-bottom: 50px;
+            color: black;
+        }
+        .btn{
+            width: 100%;
+            display: inline-block;
+        }
+        
+        @media only screen and (max-width: 800px){
+            .header{
+                text-align: center;
+                text-transform: uppercase;
+            }
+            .container{
+                width: 100%;
+                height: calc(100vh - 60px);
+                display: flex;
+                flex-direction: column;
+            }
+            .welcome{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0 auto;
+                text-align: center;
+            }
+            .sidebar{
+                width: 100%;
+                max-height: 65px;
+                background-color: black;
+            }
+            .sidebar ul{
+                width: 100%;
+                height: auto;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-evenly;
+            }
+            .sidebar ul li{
+                background-color: "lightgray";
+                border-radius: 20px;
+            }
+            .sidebar ul li:hover{
+                background-color: "lightgray";
+            }
+            .sidebar ul li a{
+                background-color: "";
+                border-radius: 20px;
+            }
+            .sidebar ul li a:hover{
+                background-color: "";
+                border: none;
+                border-radius: 20px;
+            }
+            .container form div{
+                flex-direction: column;
+            }
+            .ssearchForm div{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
